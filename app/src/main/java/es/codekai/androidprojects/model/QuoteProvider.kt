@@ -8,7 +8,7 @@ class QuoteProvider {
         }
 
         private val quote = listOf<QuoteModel>(
-            QuoteModel("Cita 1", "Autor 1"),
+            QuoteModel("Cita 1 \uD83D\uDD25 ", "Autor \uD83E\uDD13"),
             QuoteModel("Cita 2", "Autor 2"),
             QuoteModel("Cita 3", "Autor 3"),
             QuoteModel("Cita 4", "Autor 4"),
