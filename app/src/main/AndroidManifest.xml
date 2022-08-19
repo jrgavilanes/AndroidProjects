@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="es.codekai.androidprojects">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidProjects">
         <activity
-            android:name=".view.MainActivity"
+            android:name="es.codekai.androidprojects.ui.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,10 +1,11 @@
-package es.codekai.androidprojects.view
+package es.codekai.androidprojects.ui.view
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import es.codekai.androidprojects.databinding.ActivityMainBinding
-import es.codekai.androidprojects.viewmodel.QuoteViewModel
+import es.codekai.androidprojects.ui.viewmodel.QuoteViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUI() {
+        quoteViewModel.onCreate()
         quoteViewModel.randomQuote()
 
         binding.viewContainer.setOnClickListener {
@@ -27,6 +29,14 @@ class MainActivity : AppCompatActivity() {
         quoteViewModel.quoteModel.observe(this) {
             binding.tvQuote.text = it.quote
             binding.tvAuthor.text = it.author
+        }
+
+        quoteViewModel.isLoading.observe(this) { isLoading ->
+            if (isLoading) {
+                binding.progressBar.visibility = View.VISIBLE
+            } else {
+                binding.progressBar.visibility = View.GONE
+            }
         }
     }
 }
