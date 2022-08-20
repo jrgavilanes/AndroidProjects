@@ -3,16 +3,20 @@ package es.codekai.androidprojects.ui.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import es.codekai.androidprojects.data.model.QuoteModel
 import es.codekai.androidprojects.domain.GetQuotesUseCase
 import es.codekai.androidprojects.domain.GetRandomQuoteUseCase
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class QuoteViewModel : ViewModel() {
+@HiltViewModel
+class QuoteViewModel @Inject constructor(
+    private val getQuotesUseCase: GetQuotesUseCase,
+    private val getRandomQuoteUseCase: GetRandomQuoteUseCase
+) : ViewModel() {
     val quoteModel = MutableLiveData<QuoteModel>()
     val isLoading = MutableLiveData(false)
-    val getQuotesUseCase = GetQuotesUseCase()
-    val getRandomQuoteUseCase = GetRandomQuoteUseCase()
 
     fun randomQuote() {
         val randomQuote = getRandomQuoteUseCase()

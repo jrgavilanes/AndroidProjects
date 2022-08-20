@@ -2,11 +2,15 @@ package es.codekai.androidprojects.domain
 
 import es.codekai.androidprojects.data.model.QuoteModel
 import es.codekai.androidprojects.data.model.QuoteProvider
+import javax.inject.Inject
 
-class GetRandomQuoteUseCase {
+class GetRandomQuoteUseCase @Inject constructor(
+    private val quoteProvider: QuoteProvider
+) {
     operator fun invoke(): QuoteModel? {
-        if (QuoteProvider.quotes.size > 1) {
-            return QuoteProvider.quotes[QuoteProvider.quotes.indices.random()]
+        val quotes = quoteProvider.quotes
+        if (quotes.size > 1) {
+            return quotes[quotes.indices.random()]
         }
         return null
     }
