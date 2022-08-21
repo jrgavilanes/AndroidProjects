@@ -5,11 +5,11 @@ import es.codekai.androidprojects.domain.model.Quote
 import javax.inject.Inject
 
 class GetRandomQuoteUseCase @Inject constructor(
-    private val repository: QuoteRepository
+    private val quoteRepository: QuoteRepository
 ) {
     suspend operator fun invoke(): Quote? {
-        val quotes = repository.getAllQuotesFromDatabase()
-        if (quotes.size > 1) {
+        val quotes = quoteRepository.getAllQuotesFromDatabase()
+        if (quotes.isNotEmpty()) {
             return quotes[quotes.indices.random()]
         }
         return null

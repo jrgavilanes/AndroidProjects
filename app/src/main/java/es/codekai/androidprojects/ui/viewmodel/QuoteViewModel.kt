@@ -20,10 +20,12 @@ class QuoteViewModel @Inject constructor(
 
     fun randomQuote() {
         viewModelScope.launch {
+            isLoading.postValue(true)
             val randomQuote = getRandomQuoteUseCase()
             randomQuote?.let {
                 quoteModel.postValue(it)
             }
+            isLoading.postValue(false)
         }
     }
 
@@ -32,7 +34,7 @@ class QuoteViewModel @Inject constructor(
             isLoading.postValue(true)
             val result = getQuotesUseCase()
             if (result.isNotEmpty()) {
-                quoteModel.postValue(result[0])
+                quoteModel.postValue(result.first())
                 isLoading.postValue(false)
             }
         }
