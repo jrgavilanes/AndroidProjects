@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUI() {
         quoteViewModel.onCreate()
-        quoteViewModel.randomQuote()
 
         binding.viewContainer.setOnClickListener {
             quoteViewModel.randomQuote()
