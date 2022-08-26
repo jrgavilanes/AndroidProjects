@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidProjects">
         <activity
-            android:name="es.codekai.androidprojects.ui.view.MainActivity"
+            android:name="es.codekai.androidprojects.ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
