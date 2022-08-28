@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import es.codekai.androidprojects.databinding.ActivityMainBinding
 import es.codekai.androidprojects.presentation.example.ExampleActivity
+import es.codekai.androidprojects.presentation.rickandmorty.RickandmortyActivity
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -21,6 +22,10 @@ class MainActivity : AppCompatActivity() {
         binding.btnExample.setOnClickListener {
             val exampleScreen = Intent(this, ExampleActivity::class.java)
             startActivity(exampleScreen)
+        }
+        binding.btnRickandmorty.setOnClickListener {
+            val rickandmortyScreen = Intent(this, RickandmortyActivity::class.java)
+            startActivity(rickandmortyScreen)
         }
     }
 }
