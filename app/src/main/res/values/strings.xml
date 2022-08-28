@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidProjects</string>
+    <string name="goto_example_screen">Ir a ejemplo</string>
 </resources>
